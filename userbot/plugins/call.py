@@ -14,9 +14,7 @@ from telethon import events
 
 import asyncio
 
-
-
-
+from userbot import ALIVE_NAME
 
 @borg.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
 
@@ -31,6 +29,8 @@ async def _(event):
     animation_ttl = range(0, 18)
 
     input_str = event.pattern_match.group(1)
+    
+    DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Anonymous"
 
     if input_str == "call":
 
@@ -52,7 +52,7 @@ async def _(event):
             "`Marie: Okay, be ready..`",
             "`Me: Alright. I get ready2cum right now.`",
             "`Marie: Are you on the Phone right now? I wanna start a secret Chat to send my Nudes`",
-            "`Me: Yeah, just search me on the Telegram search. My Name is {DEFAULTUSER}`",
+            "`Me: Yeah, just search me on the Telegram search. It's me, {DEFAULTUSER}`",
             "`Marie: Okay, lemme go to the Toilet.. Take a sec...`",
             "`Me: Sure. \nSee u on TG :-)`",
             "`Private Call Disconnected.`"
